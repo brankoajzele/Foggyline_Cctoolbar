@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Foggyline
+ * @package     Foggyline_Cctoolbar
+ * @copyright   Copyright (c) Branko Ajzele <ajzele@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <catalog>
+            <groups>
+                <foggyline_cctoolbar translate="label">
+                    <label><![CDATA[Foggyline | Configurable catalog toolbar]]></label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>101</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If enabled this extension will allow you to do slight modifications to catalog toolbar, such as merge/combine "Sort by" and "order", custom labels for "Sort by", etc. This extension was originally built and tested on Magento CE v1.8.1.0.]]></comment>
+                        </active>
+                        <merge_sort_dir translate="label">
+                            <label>Merge/combine "Sort by" and "order"</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If enabled, "Sort By" becomes sort of merged combination of "Sort By" and "order" functionality.]]></comment>
+                        </merge_sort_dir>
+                        <attribute_label_mappings translate="label">
+                            <label>Attribute Label Mappings</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Example of one line entry follows (you just need to enter it without quotation marks): "price;%s Low-High;%s High-Low". As shown, triple ";" char is used to separate the attribute code, from ascending label, from descending label. Chars "%s" are used as placeholder for attribute name within the label. So the general formula is "attribute_code_value;Some Ascending %s Label;Some Descending %s Label". Given the dynamic nature of attributes, where merchant/admin user can configure attributes to be shown or not in the "Sort By" control, if an attribute shows up on the "Sort By" the default "%s Asc." or "%s Desc." labels will be used on the frontend. Optionally you can use the below fields, "Default Asc. Label" and "Default Desc. Label" to assign defaults labels for attributes that might not have above mapping assigned.]]></comment>
+                        </attribute_label_mappings>
+                        <default_asc_label translate="label">
+                            <label>Default Asc. Label</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Assigns default label next to attribute name under new merged/combined "Sort By" control for ascending case for attributes that might not have above mapping assigned. If this field is empty, string "Asc." will be used, as in "Color Asc.".]]></comment>
+                        </default_asc_label>
+                        <default_desc_label translate="label">
+                            <label>Default Desc. Label</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Assigns default label next to attribute name under new merged/combined "Sort By" control for descending case for attributes that might not have above mapping assigned. If this field is empty, string "Desc." will be used, as in "Color Desc.".]]></comment>
+                        </default_desc_label>
+                        <default_direction translate="label">
+                            <label>Default Direction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>foggyline_cctoolbar/system_config_source_default_direction</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Sets the default order direction, ascending or descending. By default Magento uses ascending. Once you use the toolbar to set the order, its written into the session, so you might want to clear the session to check that this is working properly.]]></comment>
+                        </default_direction>
+                        <hide_sort_by_label translate="label">
+                            <label>Hide "Sort By" label</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Whether or not to hide the "Sort By" label]]></comment>
+                        </hide_sort_by_label>
+                        <hide_view_as_label translate="label">
+                            <label>Hide "View as" label</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Whether or not to hide the "View as" label]]></comment>
+                        </hide_view_as_label>
+                        <hide_direction translate="label">
+                            <label>Hide direction icon</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Whether or not to hide the direction icon.]]></comment>
+                        </hide_direction>
+                    </fields>
+                </foggyline_cctoolbar>
+            </groups>
+        </catalog>
+    </sections>
+</config>

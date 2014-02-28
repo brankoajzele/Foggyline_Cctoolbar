@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Foggyline
+ * @package     Foggyline_Cctoolbar
+ * @copyright   Copyright (c) Branko Ajzele <ajzele@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Foggyline_Cctoolbar>
+            <version>1.0.0.0</version>
+        </Foggyline_Cctoolbar>
+    </modules>
+    <global>
+        <models>
+            <foggyline_cctoolbar>
+                <class>Foggyline_Cctoolbar_Model</class>
+            </foggyline_cctoolbar>
+        </models>
+        <helpers>
+            <foggyline_cctoolbar>
+                <class>Foggyline_Cctoolbar_Helper</class>
+            </foggyline_cctoolbar>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <foggyline_cctoolbar_setDefaultDirection>
+                        <class>foggyline_cctoolbar/observer</class>
+                        <method>setDefaultDirection</method>
+                    </foggyline_cctoolbar_setDefaultDirection>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <foggyline_cctoolbar_setTemplate>
+                        <class>foggyline_cctoolbar/observer</class>
+                        <method>setTemplate</method>
+                    </foggyline_cctoolbar_setTemplate>
+                </observers>
+            </core_block_abstract_to_html_before>
+        </events>
+    </frontend>
+   <default>
+        <catalog>
+            <foggyline_cctoolbar>
+                <active>0</active>
+                <merge_sort_dir>0</merge_sort_dir>
+                <attribute_label_mappings><![CDATA[position;%s First-Last;%s Last-First
+name;%s A-Z;%s Z-A
+price;%s Low-High;%s High-Low
+]]></attribute_label_mappings>
+                <default_asc_label><![CDATA[%s Asc.]]></default_asc_label>
+                <default_desc_label><![CDATA[%s Desc.]]></default_desc_label>
+                <default_direction><![CDATA[desc]]></default_direction>
+                <hide_sort_by_label>0</hide_sort_by_label>
+                <hide_view_as_label>0</hide_view_as_label>
+                <hide_direction>0</hide_direction>
+            </foggyline_cctoolbar>
+        </catalog>
+    </default>    
+</config>
